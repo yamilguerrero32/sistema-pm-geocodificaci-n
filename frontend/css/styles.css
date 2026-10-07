@@ -1,0 +1,309 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: #f3f4f6; /* Fondo gris muy claro minimalista */
+    color: #1f2937;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* --- ESTRUCTURA PRINCIPAL DIVIDIDA --- */
+.app-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+.sidebar {
+    width: 450px;
+    min-width: 450px;
+    padding: 20px;
+    background-color: #f3f4f6;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.map-wrapper {
+    flex-grow: 1;
+    padding: 20px 20px 20px 0;
+}
+
+#mapa {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 1; /* Para no sobreponerse a otros elementos flotantes */
+}
+
+/* --- TIPOGRAFÍA Y ENCABEZADO --- */
+.app-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.app-title i {
+    color: #4b5563;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #111827;
+}
+
+/* --- TARJETAS (CARDS) --- */
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* --- FORMULARIOS E INPUTS --- */
+.form-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.form-col-2 > * { flex: 1; }
+.form-col-4 > * { flex: 1; }
+.form-col-4 > select { flex: 1.5; } /* Darle un poquito más de espacio al select */
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+    font-family: inherit;
+}
+
+input:focus, select:focus {
+    border-color: #3b82f6;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-group label {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+/* --- BOTONES --- */
+.form-actions {
+    margin-top: 15px;
+}
+
+.form-actions.center { text-align: center; }
+.form-actions.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background-color: #3b82f6; /* Azul moderno */
+    color: white;
+    width: 60%;
+}
+
+.btn-primary:hover { background-color: #2563eb; }
+
+.form-actions.grid-2 .btn-primary { width: 100%; }
+
+.btn-secondary {
+    background-color: #f3f4f6;
+    color: #4b5563;
+}
+
+.btn-secondary:hover {
+    background-color: #e5e7eb;
+    color: #1f2937;
+}
+
+/* --- LISTA DE CLIENTES --- */
+.clientes-contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.cliente-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #f9fafb;
+    border-radius: 8px;
+    font-size: 13px;
+    border: 1px solid #f3f4f6;
+}
+
+.cliente-info strong {
+    display: inline-block;
+    width: 120px; /* Para alinear los teléfonos */
+}
+
+.btn-eliminar {
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.btn-eliminar:hover { color: #ef4444; } /* Rojo al pasar el mouse */
+
+/* --- INFORMACIÓN DE RUTA --- */
+.info-ruta {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    background-color: #f9fafb;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+}
+
+.info-ruta i {
+    color: #9ca3af;
+    margin-right: 5px;
+}
+
+.seleccion-clientes {
+    margin-top: 10px;
+}
+
+.clientes-ruta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 260px;
+    overflow-y: auto;
+    padding: 5px;
+}
+
+.cliente-ruta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    background-color: #f9fafb;
+    border: 1px solid #f3f4f6;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.cliente-ruta-item:hover {
+    background-color: #f3f4f6;
+}
+
+.cliente-ruta-item input {
+    width: auto;
+    cursor: pointer;
+}
+
+/* ------------------- MARCADOR DE ORIGEN ------------------- */
+
+.marcador-origen {
+    background: none;
+    border: none;
+}
+
+.marcador-origen-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #f97316;
+    border: 3px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/*  */
+
+.marcador-orden {
+    background: none;
+    border: none;
+}
+
+.marcador-orden-numero {
+    width: 20px;
+    height: 20px;
+    background-color: #eb2525;
+    border: 3px solid white;
+    border-radius: 60%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------------------- Cliente nombre y zona ---------------------*/
+
+.cliente-ruta-nombre {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.cliente-ruta-zona {
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.contador-zona {
+    margin: 6px 0 8px;
+    color: #6b7280;
+    font-size: 12px;
+}

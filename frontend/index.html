@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Repartos</title>
+    <!-- Fuentes e Iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- PANEL IZQUIERDO (Controles) -->
+        <aside class="sidebar">
+                <h1 class="app-title">
+                    <i class="fa-solid fa-box-open"></i> Sistema de Repartos
+                </h1>
+
+            <!-- TARJETA: CREAR CLIENTE -->
+            <div class="card" id="formulario-cliente">
+                <h2>Nuevo Cliente</h2>
+                
+                <div class="form-row form-col-2">
+                    <input type="text" id="nombre-cliente" placeholder="Nombre">
+                    <input type="text" id="telefono-cliente" placeholder="Teléfono">
+                </div>
+
+                <div class="form-row form-col-4">
+                    <select id="tipo-vialidad">
+                        <option value="Calle">Calle</option>
+                        <option value="Avenida">Avenida</option>
+                        <option value="Boulevard">Boulevard</option>
+                        <option value="Calzada">Calzada</option>
+                        <option value="Carretera">Carretera</option>
+                        <option value="Privada">Privada</option>
+                    </select>
+                    <input type="text" id="nombre-vialidad" placeholder="Calle">
+                    <input type="text" id="numero-vialidad" placeholder="Número">
+                    <input type="text" id="colonia-cliente" placeholder="Colonia">
+                </div>
+
+                <div class="form-actions center">
+                    <button id="crear-cliente" class="btn-primary">Crear cliente</button>
+                </div>
+            </div>
+
+            <!-- TARJETA: CONTROL DE RUTA -->
+            <div class="card" id="controles-ruta">
+                <h2>Control de Ruta</h2>
+                
+                <div class="input-group">
+                    <label>Punto de salida y regreso</label>
+                    <input
+                        type="text"
+                        value="Avenida 5 de Febrero 52, Los Mochis, Sinaloa"
+                        readonly
+                    >
+                </div>
+                
+                <div class="input-group seleccion-clientes">
+                    <label>Zonas a escoger:</label>
+
+                    <select id="filtro-zona">
+                        <option value="todas">Todas las zonas</option>
+                        <option value="1">Zona 1</option>
+                        <option value="2">Zona 2</option>
+                        <option value="3">Zona 3</option>
+                        <option value="4">Zona 4</option>
+                    </select>
+
+                    <p id="contador-zona" class="contador-zona">
+                        Clientes disponibles: 0
+                    </p>
+
+                    <div id="clientes-ruta" class="clientes-ruta">
+                        <!-- Los clientes se agregarán aquí con JavaScript -->
+                    </div>
+                </div>
+
+                <div class="info-ruta">
+                    <p id="distancia"><i class="fa-solid fa-route"></i> Distancia: -- km</p>
+                    <p id="duracion"><i class="fa-regular fa-clock"></i> Tiempo: -- min</p>
+                </div>
+
+                <div class="form-actions grid-2">
+                    <button id="calcular-ruta" class="btn-primary">Calcular ruta</button>
+                    <button id="limpiar-ruta" class="btn-secondary"><i class="fa-regular fa-trash-can"></i> Limpiar ruta</button>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- PANEL DERECHO (Mapa) -->
+        <main class="map-wrapper">
+            <div id="mapa"></div>
+        </main>
+
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Script propio -->
+    <script src="js/app.js"></script>
+</body>
+</html>http://127.0.0.1:8000
